@@ -1,0 +1,25 @@
+{
+  "name": "MMM-TUZSAZaragoza",
+  "version": "1.0.0",
+  "description": "Get estimations for bus stops in Zaragoza, Spain.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafagale/MMM-TUZSAZaragoza.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "bus stop",
+    "tuzsa zaragoza",
+    "public transport"
+  ],
+  "author": "rafagale",
+  "contributors": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rafagale/MMM-TUZSAZaragoza/issues"
+  },
+  "homepage": "https://github.com/rafagale/MMM-TUZSAZaragoza",
+  "dependencies": {
+    "axios": "latest"
+  }
+}
