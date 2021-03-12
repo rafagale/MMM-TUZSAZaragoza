@@ -45,7 +45,7 @@ modules: [
     header: 'My bus stop',
     config: {
       stopNumber: 325,
-      updateInterval: 60 //in seconds
+      updateInterval: 60, //in seconds
       fadeSpeed: 1000 //in miliseconds (set to 0 to disable fade animation)
     }
   },
