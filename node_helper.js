@@ -44,7 +44,7 @@ module.exports = NodeHelper.create({
 
         let url = "https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/poste-autobus/tuzsa-" + this.config.stopNumber + ".json";
 
-        axios.get(url, { timeout: 15000 })
+        axios.get(url, { timeout: 7500 })
             .then(function (response) {
                 let data = response.data;
                 let buses = [];
@@ -67,6 +67,7 @@ module.exports = NodeHelper.create({
 
             }).catch(function (error) {
                 console.log(error.code);
+                self.sendSocketNotification("ERR");
             });
     },
 

@@ -74,6 +74,18 @@ Module.register("MMM-TUZSAZaragoza", {
 
 			this.updateDom(this.config.fadeSpeed);
 
+		} else if (notification === "ERR") {
+			var updated = document.getElementsByClassName('tuzsaUpdated')[0];
+			if (!updated.contains(document.getElementById('apidown'))) {
+				var separator = document.createTextNode("  ");
+				var content = document.createElement("i");
+				content.setAttribute("class", "fas fa-exclamation-triangle");
+				content.setAttribute("id", "apidown");
+	
+				updated.prepend(separator);
+				updated.prepend(content);
+			}
+
 		} else { Log.info(this.name + ": Unknown notification received (module)."); }
 
 	},
