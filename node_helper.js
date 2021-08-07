@@ -1,6 +1,7 @@
 const NodeHelper = require("node_helper");
 const fs = require("fs");
 const axios = require('axios');
+var successfulUpdateDate;
 
 module.exports = NodeHelper.create({
 
@@ -63,11 +64,19 @@ module.exports = NodeHelper.create({
                     title: data.title
                 };
 
+                successfulUpdateDate = new Date();
                 self.sendSocketNotification("BUS_INFO", { data: busInfo });
 
             }).catch(function (error) {
-                console.log(error.code);
-                self.sendSocketNotification("ERR");
+                if (error.code === 'ECONNABORTED') {
+                    console.log(self.name + ": Timeout");
+                } else {
+                    console.log(self.name + ": " + error.code);
+                }
+                //Send notification only when more than 150s has passed since last successful update
+                if (Math.floor((new Date() - successfulUpdateDate) / 1000) >= 150) {
+                    self.sendSocketNotification("ERR");
+                }
             });
     },
 

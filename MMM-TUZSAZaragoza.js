@@ -59,8 +59,8 @@ Module.register("MMM-TUZSAZaragoza", {
 
 			Log.info(this.name + ': Info is being processed.');
 
-			for (var i = 0; i < payload.data.buses.length; i++) {
-				var busEntity = payload.data.buses[i].split("|");
+			for (let bus of payload.data.buses) {
+				var busEntity = bus.split("|");
 				buses += '<tr><td id="nombre"><i class="fas fa-bus"></i> ' + busEntity[0].trim() + '</td><td id="tiempo">' + busEntity[1].trim() + "</td></tr>";
 			}
 
@@ -78,12 +78,12 @@ Module.register("MMM-TUZSAZaragoza", {
 			var updated = document.getElementsByClassName('tuzsaUpdated')[0];
 			if (!updated.contains(document.getElementById('apidown'))) {
 				var separator = document.createTextNode("  ");
-				var content = document.createElement("i");
-				content.setAttribute("class", "fas fa-exclamation-triangle");
-				content.setAttribute("id", "apidown");
+				var alert = document.createElement("i");
+				alert.setAttribute("class", "fas fa-exclamation-triangle");
+				alert.setAttribute("id", "apidown");
 	
 				updated.prepend(separator);
-				updated.prepend(content);
+				updated.prepend(alert);
 			}
 
 		} else { Log.info(this.name + ": Unknown notification received (module)."); }
